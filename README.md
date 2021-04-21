@@ -10,7 +10,17 @@
 
 - They'd like a data engineer to create an Apache Cassandra database which can create queries on song play data to answer the questions, and wish to bring you on the project. Your role is to create a database for this analysis. You'll be able to test your database by running queries given to you by the analytics team from Sparkify to create the results.
 
-### Question for Udacity revisors:
+### Solution Description:
 
-- On Part1, why did you created an intermediate csv file with the csv library instead of pandas, any particular reason, like a memory efficient way to do I/O with csv files?
-- Furthermore, is there a reason of why we didn't parsed directly file by file like in Project1A with Postgres? In this Project, we are first creating a "intermediate" csv file names event_datafile_new.csv, and the using this intermediate csv file to fill our database.
+- As a good data modelling approach using Apache Cassandra, three new tables were created to answer three different questions, tables `music_session, user_session and songs_user`.
+- All the CQL statements used to `DROP, CREATE, INSERT and SELECT` data into these tables are defined on `sql_queries.py`.
+- The Whole ETL process is define inside the notebook Project*1B* `Project_Template.ipynb`.
+
+### Project Structure:
+
+- To reproduce the solution present in this repository, you will first have to install some dependencies:
+  1. Firstly, you will need to have **Apache Cassandra** installed in your machine, refer the [official documentation](https://cassandra.apache.org/) in order to properly install it on your OS.
+  2. Secondly, you will need to have a **Python 3.6+** installed on your machine, refer the [official documentation](https://www.python.org/) in order to properly install it on your OS.
+  3. Third (Tested on Ubuntu 18.04 and 20.04), run the **Makefile** from the project run by typing on the terminal `$ make`. This command will run through the Makefile, in order to build a virtual environment with python and some dependencies to run this project.
+  4. Once you sucessfully ran the make command, a folder named `venv` should be installed on the root of the project, aswell as the [`jupyte-notebook`](https://jupyter.org/) installed.
+  5. To reproduce the whole ETL solution, first you will have to activate your created virtual environment by typing on your terminal `$ source venv/bin/activate`. Then, type on your terminal `$ jupyter-notebook`, open the notebook `Project_1B_ Project_Template.ipynb`, and execute it. All data modeling decisions are described inside the notebook.
